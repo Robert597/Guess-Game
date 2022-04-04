@@ -1,0 +1,35 @@
+const data = require("../Model/Data");
+const getUser = async (req, res) => {
+    const datas = await data.find();
+    if(!datas) { return res.status(400).send({message: "no data was provided"})};
+    return res.status(200).json(datas);
+}
+
+const postUser = async (req, res) => {
+    const allEmployees = await data.find();
+    if(!req.body) return res.status(400).send({message: "user data needed"});
+    try{
+        const result = await data.create({
+            username: req.body.username,
+            score: req.body.score
+        })
+        console.log(result);
+        return res.status(201).send({message: "user has been added"});
+    }catch (err) {
+        return res.status(401).send({message: err.message});
+    }
+}
+
+const updateUser = async (req, res) => {
+    if(!req.body.id || !req.body.score) return res.status(404).send({message: "userId need to be specified"});
+    try{
+        const result = await data.findOne({_id: req.body.id});
+        req.body.score > result.score ? result.score = req.body.score : result.score;
+         await result.save();
+        return res.status(200).send(result);
+    }catch (err) {
+        return res.status(401).send({message: err.message});
+    }
+
+}
+module.exports = {updateUser, postUser, getUser}
