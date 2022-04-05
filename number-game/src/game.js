@@ -21,7 +21,7 @@ const Game = () => {
 
   const goBack = async () => {
         try{
-          await Axios.put('http://localhost:5500', {
+          await Axios.put('https://game-server.herokuapp.com/controllers', {
                 id,
                 score
             })
@@ -53,7 +53,7 @@ useEffect(() => {
     const getUsername = async () => {
         try{
             setLoading(true);
-            const response = await Axios.get("http://localhost:5500");
+            const response = await Axios.get("https://game-server.herokuapp.com/controllers");
             const selected = await response.data.filter(a => a._id === id);
             setUsername(selected[0].username);
         }  catch (err) {
