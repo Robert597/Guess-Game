@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const connectDB = require("./Model/dbcon.js");
-const PORT = process.env.PORT || 5500;
 require("dotenv").config();
+const PORT = process.env.PORT;
 const path = require("path");
 
 app.use(cors({origin: "*", credentials: true}));
