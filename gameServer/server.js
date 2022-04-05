@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     return res. status(201).sendFile(path.join(__dirname, "views", "index.html"));
 })
 app.use("/controllers", require("./Route/route"));
-app.get("*", (req, res) => {
+app.get("*", (req, res) => { 
     return res.send("Error, page not found");
  })
 
@@ -27,3 +27,4 @@ mongoose.connection.once("open", () => {
     })
 })
 
+module.exports = app;
