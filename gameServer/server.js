@@ -27,4 +27,3 @@ mongoose.connection.once("open", () => {
     })
 })
 
-module.exports = app;
