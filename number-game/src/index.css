@@ -30,7 +30,12 @@ code {
 .options{
   border-radius: 50%;
 }
-
+.appear{
+  position: absolute;
+  top: 70%;
+  transform: translateY(-70%);
+  z-index: 99;
+}
 .disabled{
   pointer-events: none;
 }

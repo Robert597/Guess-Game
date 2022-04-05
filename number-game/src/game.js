@@ -110,19 +110,19 @@ useEffect(() => {
         <div className={counter < 10 ? 'animate-pulse counter fixed h-12 w-12  sm:h-20 sm:w-20 top-0 right-8 flex justify-center items-center text-base sm:text-xl bg-red-600 options text-white' :'counter fixed h-12 w-12  sm:h-20 sm:w-20 top-0 right-8 flex justify-center items-center text-base sm:text-xl bg-secondary options text-white '}>
             {counter}
         </div>
-    <div className={correct ? "block mx-auto w-60 sm:w-80 rounded-md bg-green-600 p-4 sm:p-8 flex flex-col items-center space-y-4 absolute top-80" : "hidden"}>
+    <div className={correct ? "block mx-auto w-60 sm:w-80 rounded-md bg-green-600 p-4 sm:p-8 flex flex-col items-center space-y-4 appear" : "hidden"}>
          <p className='text-white  text-base sm:text-lg font-poppins text-capitalize text-center'>You've guessed right</p>
          <p className='text-white text-sm sm:text-base font-poppins text-capitalize text-center'>You have {score} out of {total} points</p>
          {total < 10 ?  (<button className="px-4 py-2  w-36 bg-white font-PT text-base text-primary font-bold rounded-full" onClick={() => {refresh === false ? setRefresh(true) : setRefresh(false); setCorrect(false);}}>Next Guess</button>) : (<>
          <p className='text-white text-lg font-poppins text-capitalize text-center'>You've completed all questions</p><Link to="/splash"  className="px-4 py-2  w-36 bg-white font-poppins font-bold text-base text-primary rounded-full text-center" onClick={() => goBack()}>Go back</Link></>) }
     </div>
-    <div className={wrong ? "block  mx-auto w-60 sm:w-80 rounded-md bg-red-600 p-4 sm:p-8 flex flex-col items-center space-y-4 absolute top-80" : "hidden"}>
+    <div className={wrong ? "block  mx-auto w-60 sm:w-80 rounded-md bg-red-600 p-4 sm:p-8 flex flex-col items-center space-y-4 appear" : "hidden"}>
          <p className='text-white text-base sm:text-lg font-poppins text-capitalize text-center'>OOps, Try again</p>
          <p className='text-white text-sm sm:text-base font-poppins text-capitalize text-center'>You have {score} out of {total} points</p>
          {total < 10 ?  (<button className="px-4 py-2  w-36 bg-white font-poppins font-bold text-base text-primary rounded-full" onClick={() => {refresh === false ? setRefresh(true) : setRefresh(false); setWrong(false);}}>Next Guess</button>) : (<>
          <p  className='text-white text-base font-poppins text-capitalize text-center'>You've completed all questions</p><Link to="/splash"  className="px-4 py-2  w-36 bg-white font-poppins text-base font-bold text-primary rounded-full text-center" onClick={() => goBack()}>Go back</Link></>) }
     </div>
-    <div className={counter > 0 ? "hidden" : "block mx-auto w-60 sm:w-80 rounded-md p-4 bg-red-600 sm:p-8 flex flex-col items-center space-y-4 absolute top-80 " }>
+    <div className={counter > 0 ? "hidden" : "block mx-auto w-60 sm:w-80 rounded-md p-4 bg-red-600 sm:p-8 flex flex-col items-center space-y-4 appear " }>
     <p className='text-white text-base sm:text-lg font-poppins text-capitalize text-center'>OOps, you ran out of time</p>
     <p className='text-white text-sm sm:text-base font-poppins text-capitalize text-center'>You have {score} out of {total + 1} points</p>
     {total + 1 < 10 ?  (<button className="px-4 py-2  w-36 bg-white font-poppins font-bold text-base text-primary rounded-full" onClick={() => {refresh === false ? setRefresh(true) : setRefresh(false); setTotal(total + 1); setCounter(20)}}>Next Guess</button>) : (<>
